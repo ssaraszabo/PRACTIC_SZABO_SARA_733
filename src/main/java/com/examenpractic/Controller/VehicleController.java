@@ -43,13 +43,27 @@ public class VehicleController {
                 System.out.println(v);
             }
 
-            // TASK 3 – Sort vehicles & TASK 4
+            // TASK 3 & TASK 4 – Sort vehicles & print to file
             List<Vehicle> sorted = fahrerService.getSortedVehicles(vehicle);
             try {
                 fahrerService.saveVehiclesToFile(sorted, "vehicles_sorted.txt");
                 System.out.println("\nSuccessfully saved sorted vehicles to vehicles_sorted.txt");
             } catch (IOException e) {
                 System.err.println("File error: " + e.getMessage());
+            }
+
+
+            // TASK 5 – Computed points
+            System.out.println("\nComputed points for first 5 events:");
+            for (int i = 0; i < 5 && i < trafficEvents.size(); i++) {
+                TrafficEvent e = trafficEvents.get(i);
+                int computedPoints = ereignisService.calculateComputedPoints(e);
+
+                System.out.println(
+                        "Event " + e.getId() 
+                        + " -> severity=" + e.getSeverity()
+                        + " -> riskScore=" + computedPoints
+                );
             }
 
         } catch (IOException e) {
