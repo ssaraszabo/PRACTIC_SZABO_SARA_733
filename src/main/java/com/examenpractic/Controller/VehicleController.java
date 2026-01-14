@@ -9,8 +9,6 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
-import com.examenpractic.Model.Vehicle;
-
 public class VehicleController {
     public void run() {
         try {
@@ -32,6 +30,20 @@ public class VehicleController {
             for (Vehicle v : vehicle) {
                 System.out.println(v);
             }
+
+            // TASK 2 – Filter vehicles by type and status
+            System.out.print("\nInput type to filter: ");
+            String teamInput = scanner.nextLine();
+            System.out.print("\nInput status to filter: ");
+            String statusInput = scanner.nextLine();
+
+            List<Vehicle> filtered = fahrerService.filterTeamByStatus(vehicle, VehicleType.valueOf(teamInput.toUpperCase()), VehicleStatus.valueOf(statusInput.toUpperCase()));
+            System.out.println("Filtered Vehicles (" + teamInput + " & " + statusInput + "):");
+            for (Vehicle v : filtered) {
+                System.out.println(v);
+            }
+            
+
         } catch (IOException e) {
             System.err.println("Error reading data: " + e.getMessage());}
         }
