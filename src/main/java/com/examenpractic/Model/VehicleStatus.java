@@ -1,5 +1,3 @@
 package com.examenpractic.Model;
 
-public class VehicleStatus {
-    ACTIVE, BLOCKED
-}
+public enum VehicleStatus {ACTIVE, BLOCKED}

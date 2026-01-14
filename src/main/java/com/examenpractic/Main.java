@@ -1,7 +1,9 @@
 package com.examenpractic;
+import com.examenpractic.Controller.VehicleController;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        VehicleController controller = new VehicleController();
+        controller.run();
     }
 }
