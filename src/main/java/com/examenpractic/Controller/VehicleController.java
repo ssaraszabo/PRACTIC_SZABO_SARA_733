@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
 
+
 public class VehicleController {
     public void run() {
         try {
@@ -65,7 +66,10 @@ public class VehicleController {
                         + " -> riskScore=" + computedPoints
                 );
             }
-
+/* 
+            // TASK 7 – Generate report
+            EventService.generateReport(trafficEvents, "traffic_report.txt");
+*/
         } catch (IOException e) {
             System.err.println("Error reading data: " + e.getMessage());}
         }
