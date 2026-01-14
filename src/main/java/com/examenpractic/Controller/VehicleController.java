@@ -42,7 +42,15 @@ public class VehicleController {
             for (Vehicle v : filtered) {
                 System.out.println(v);
             }
-            
+
+            // TASK 3 – Sort vehicles & TASK 4
+            List<Vehicle> sorted = fahrerService.getSortedVehicles(vehicle);
+            try {
+                fahrerService.saveVehiclesToFile(sorted, "vehicles_sorted.txt");
+                System.out.println("\nSuccessfully saved sorted vehicles to vehicles_sorted.txt");
+            } catch (IOException e) {
+                System.err.println("File error: " + e.getMessage());
+            }
 
         } catch (IOException e) {
             System.err.println("Error reading data: " + e.getMessage());}

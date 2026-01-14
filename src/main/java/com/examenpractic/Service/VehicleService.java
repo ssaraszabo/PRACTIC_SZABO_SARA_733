@@ -19,32 +19,25 @@ public class VehicleService {
                 .filter(vehicle -> vehicle.getStatus() == status)
                 .collect(Collectors.toList());
     }
-/* 
-    // ====================================================
-    // TASK 3 – Sort drivers
-    // Sorting rules:
-    //  - skillLevel descending
-    //  - name ascending (if skillLevel is equal)
-    // ====================================================
-    public List<Fahrer> getSortedFahrer(List<Fahrer> fahrerList) {
-        List<Fahrer> sortedList = new ArrayList<>(fahrerList);
+
+    // TASK 3 
+    public List<Vehicle> getSortedVehicles(List<Vehicle> vehicleList) {
+        List<Vehicle> sortedList = new ArrayList<>(vehicleList);
         sortedList.sort(
-                Comparator.comparing(Fahrer::getSkillLevel)
+                Comparator.comparing(Vehicle::getOwnerCity)
                         .reversed()
-                        .thenComparing(Fahrer::getName) 
+                        .thenComparing(Vehicle::getId) 
         );
 
         return sortedList;
     }
 
-    // ====================================================
-    // TASK 4 – Save sorted drivers to file
-    // ====================================================
-    public void saveFahrerToFile(List<Fahrer> fahrerList, String fileName) throws IOException {
+    // TASK 4 
+    public void saveVehiclesToFile(List<Vehicle> vehiclesList, String fileName) throws IOException {
         try (PrintWriter writer = new PrintWriter(fileName)) {
-            for (Fahrer fahrer : fahrerList) {
-                writer.println(fahrer.toString());
+            for (Vehicle vehicle : vehiclesList) {
+                writer.println(vehicle.toString());
             }
         }
-    }*/
+    }
 }
